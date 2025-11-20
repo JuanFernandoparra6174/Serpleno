@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Contenido Profesional - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .content-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .pro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .pro-card {
+      background: #fff;
+      padding: 14px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      text-align: center;
+    }
+
+    .pro-card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .pro-card video {
+      width: 100%;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="content-wrap">
+  <h2>Mis contenidos publicados</h2>
+
+  <div id="msg" class="alert" style="display:none;margin:10px auto;max-width:600px;"></div>
+
+  <div class="pro-grid" id="contentGrid"></div>
+
+  <p style="margin-top:20px;">
+    <a href="/pro_upload.html" class="btn primary">Subir contenido</a>
+    <a href="/pro_dashboard.html" class="btn" style="margin-left:8px;">Volver al panel</a>
+  </p>
+</main>
+
+<script src="/assets/js/pro_content.js"></script>
+
+</body>
+</html>

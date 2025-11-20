@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subir contenido profesional - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .upload-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="upload-wrap">
+  <h2>Subir contenido</h2>
+  <p style="color:#556;margin-bottom:14px;">
+    Sube videos, imágenes o documentos. <br>
+    Formatos permitidos: MP4, JPG, PNG, WEBP, PDF.
+  </p>
+
+  <div id="msg" class="alert" style="display:none;"></div>
+
+  <form id="uploadForm" class="auth-form" enctype="multipart/form-data">
+
+    <label>
+      Categoría
+      <select name="category" required>
+        <option value="entrenamientos">Entrenamientos</option>
+        <option value="psicologia">Psicología</option>
+        <option value="nutricion">Nutrición</option>
+        <option value="coach">Coach de vida</option>
+      </select>
+    </label>
+
+    <label>
+      Título
+      <input type="text" name="title" required>
+    </label>
+
+    <label>
+      Archivos (puedes seleccionar varios)
+      <input type="file" name="files" id="filesInput" multiple required>
+    </label>
+
+    <button class="btn primary" type="submit">Subir contenido</button>
+
+  </form>
+
+  <p style="margin-top:20px;">
+    <a href="/pro_content.html" class="btn">Ver mis contenidos</a>
+    <a href="/pro_dashboard.html" class="btn" style="margin-left:8px;">Volver al panel</a>
+  </p>
+</main>
+
+<script src="/assets/js/pro_upload.js"></script>
+
+</body>
+</html>

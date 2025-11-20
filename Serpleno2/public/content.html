@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contenido - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("navbarContainer").innerHTML = html;
+    });
+</script>
+
+<main class="home-hero">
+
+  <h2>Contenido disponible</h2>
+
+  <!-- Chips de filtros -->
+  <div class="chip-group" id="chipGroup">
+    <div class="chip active" data-cat="all">Todo</div>
+    <div class="chip" data-cat="entrenamientos">Entrenamientos</div>
+    <div class="chip" data-cat="psicologia">Psicología</div>
+    <div class="chip" data-cat="nutricion">Nutrición</div>
+    <div class="chip" data-cat="coach">Coaching</div>
+  </div>
+
+  <!-- Contenido -->
+  <div id="contentGrid" class="center-grid" style="margin-top:20px;"></div>
+
+  <div id="contentMsg" class="alert danger" style="display:none;margin-top:20px;"></div>
+
+</main>
+
+<script src="/assets/js/content.js"></script>
+
+</body>
+</html>

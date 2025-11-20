@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Profesional - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .dashboard-wrap {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .tool-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      transition: transform .1s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .tool-card h3 {
+      margin: 0 0 8px 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="dashboard-wrap">
+  <h2 style="text-align:center">Panel del Profesional</h2>
+
+  <div id="welcome" style="text-align:center;margin-top:8px;color:#666;"></div>
+
+  <section class="tool-grid" id="toolGrid"></section>
+
+</main>
+
+<script src="/assets/js/pro_dashboard.js"></script>
+
+</body>
+</html>

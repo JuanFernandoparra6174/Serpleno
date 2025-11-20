@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario Profesional - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .calendar-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .day {
+      background: #fff;
+      border-radius: 10px;
+      padding: 8px;
+      min-height: 80px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .day .date {
+      font-weight: bold;
+    }
+
+    .slot {
+      background: #e6f3f0;
+      color: #1f6f62;
+      border-radius: 6px;
+      padding: 3px 6px;
+      margin-top: 4px;
+      font-size: 12px;
+    }
+
+    .slot.busy {
+      background: #f8e6e6;
+      color: #a33;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 14px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="calendar-wrap">
+
+  <h2>Calendario Profesional</h2>
+
+  <div id="msg" class="alert" style="display:none;"></div>
+
+  <!-- CAMBIO DE MES -->
+  <div class="calendar-header">
+    <button class="btn" onclick="prevMonth()">◀</button>
+    <h3 id="monthLabel">Mes</h3>
+    <button class="btn" onclick="nextMonth()">▶</button>
+  </div>
+
+  <!-- NUEVO SLOT -->
+  <div class="form-row">
+    <input type="date" id="newDate">
+    <select id="newHour">
+      <option value="">Hora</option>
+      <option value="08:00">08:00</option>
+      <option value="09:00">09:00</option>
+      <option value="10:00">10:00</option>
+      <option value="11:00">11:00</option>
+      <option value="12:00">12:00</option>
+      <option value="14:00">14:00</option>
+      <option value="15:00">15:00</option>
+      <option value="16:00">16:00</option>
+    </select>
+    <button class="btn primary" onclick="addSlot()">Agregar</button>
+  </div>
+
+  <!-- CALENDARIO -->
+  <div class="calendar-grid" id="calendarGrid"></div>
+
+</main>
+
+<script src="/assets/js/pro_calendar.js"></script>
+
+</body>
+</html>

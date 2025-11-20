@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ingresar - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 70px auto;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="login-container">
+    <h2>Bienvenido a Serpleno</h2>
+
+    <form id="loginForm" class="auth-form">
+      <label>
+        Correo
+        <input type="email" name="email" required />
+      </label>
+
+      <label>
+        Contraseña
+        <input type="password" name="password" required />
+      </label>
+
+      <button class="btn primary" type="submit">Ingresar</button>
+
+      <p style="margin-top:10px;">
+        <a href="/reset.html">¿Olvidaste tu contraseña?</a>
+      </p>
+      <p>
+        <a href="/register.html">Crear cuenta</a>
+      </p>
+    </form>
+
+    <div id="loginMsg" class="alert" style="display:none;"></div>
+  </main>
+
+  <!-- Archivo JS externo -->
+  <script src="/assets/js/login.js"></script>
+
+</body>
+</html>
+
+

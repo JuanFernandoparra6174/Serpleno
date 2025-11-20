@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .admin-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .stat-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    .stat-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 18px;
+      color: #2f8d7e;
+    }
+    .stat-card p {
+      margin: 4px 0;
+      font-size: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="admin-wrap">
+  <h2>Panel de Administración</h2>
+
+  <div id="msg" class="alert" style="display:none;margin-top:12px;"></div>
+
+  <h3 style="margin-top:18px;">Estadísticas generales</h3>
+
+  <div id="statsGrid" class="stats-grid"></div>
+
+  <div style="margin-top:20px;">
+    <a href="/admin_users.html" class="btn primary" style="margin-right:6px;">Gestionar Usuarios</a>
+    <a href="/admin_content.html" class="btn primary" style="margin-right:6px;">Gestionar Contenido</a>
+    <a href="/admin_stats.html" class="btn primary">Estadísticas Avanzadas</a>
+  </div>
+
+</main>
+
+<script src="/assets/js/admin_dashboard.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inicio - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("navbarContainer").innerHTML = html;
+    });
+</script>
+
+<main class="home-hero">
+  <h2 id="welcome"></h2>
+
+  <!-- Carrusel -->
+  <div id="fadeCarousel" class="carousel-fade" style="max-width:640px; height:200px;">
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+    <div class="carousel-dots"></div>
+  </div>
+
+  <p style="margin-top:12px;">
+    <a class="btn primary" href="/plans.html">Conoce nuestros planes</a>
+    <a id="secondBtn" class="btn" style="margin-left:8px;"></a>
+  </p>
+</main>
+
+<script src="/assets/js/home.js"></script>
+
+</body>
+</html>

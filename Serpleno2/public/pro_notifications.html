@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notificaciones - Profesional</title>
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .notif-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 14px;
+    }
+    .notif-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .notif-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+    .notif-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .notif-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .notif-item.unread {
+      background: #e6f3f0;
+      border-left: 4px solid #2f8d7e;
+    }
+    .notif-item button {
+      padding: 5px 8px;
+      border-radius: 6px;
+      background: #ddd;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .notif-item button:hover {
+      background: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="notif-wrap">
+  <h2 style="text-align:center;margin-bottom:14px;">Notificaciones del Profesional</h2>
+
+  <div id="msg" class="alert" style="display:none;"></div>
+
+  <div class="notif-card">
+
+    <div class="notif-header">
+      <h3 style="margin:0;">Tus notificaciones</h3>
+
+      <select id="filterSelect" style="padding:6px;border-radius:6px;border:1px solid #ddd;">
+        <option value="all">Todas</option>
+        <option value="unread">No leídas</option>
+      </select>
+    </div>
+
+    <div id="notifList" class="notif-list"></div>
+
+  </div>
+
+</main>
+
+<script src="/assets/js/pro_notifications.js"></script>
+
+</body>
+</html>

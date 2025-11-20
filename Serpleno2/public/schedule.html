@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Cita - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="center-grid" style="max-width:760px;margin-top:20px;">
+  <h2 style="text-align:center;">Agendar Cita</h2>
+
+  <!-- Selección de área -->
+  <div class="card" style="padding:16px;">
+    <h3 style="margin:0 0 10px 0;">1. Selecciona un área</h3>
+    <select id="areaSelect" class="form-input" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;">
+      <option value="">Selecciona...</option>
+    </select>
+  </div>
+
+  <!-- Selección de profesional -->
+  <div class="card" style="padding:16px;">
+    <h3 style="margin:0 0 10px 0;">2. Profesional disponible</h3>
+    <select id="proSelect" disabled class="form-input" style="width:100%;padding:10px;border-radius:8px;border:1px solid #ddd;">
+      <option value="">Selecciona un área primero</option>
+    </select>
+  </div>
+
+  <!-- Selección de fecha -->
+  <div class="card" style="padding:16px;">
+    <h3 style="margin:0 0 10px 0;">3. Selecciona fecha</h3>
+    <input type="date" id="dateSelect" disabled style="padding:10px;border-radius:8px;border:1px solid #ddd;width:100%;">
+  </div>
+
+  <!-- Selección de hora -->
+  <div class="card" style="padding:16px;">
+    <h3 style="margin:0 0 10px 0;">4. Horas disponibles</h3>
+    <div id="hoursContainer" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
+  </div>
+
+  <!-- Resultado -->
+  <div id="scheduleMsg" class="alert" style="display:none;margin-top:15px;"></div>
+
+  <div style="text-align:center;margin-top:12px;">
+    <a class="btn outline" href="/portal">Volver</a>
+  </div>
+
+</main>
+
+<script src="/assets/js/schedule.js"></script>
+
+</body>
+</html>
+

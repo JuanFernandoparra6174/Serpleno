@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notificaciones - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .notifications-wrap {
+      max-width: 720px;
+      margin: 20px auto;
+      padding: 10px;
+    }
+
+    .notice-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      margin-bottom: 12px;
+    }
+
+    .notice-type {
+      font-size: 13px;
+      font-weight: bold;
+      color: #2f8d7e;
+      margin-bottom: 4px;
+    }
+
+    .upgrade-box {
+      background: #fff3f3;
+      padding: 14px;
+      border-radius: 10px;
+      border-left: 4px solid #d83a3a;
+      margin-top: 18px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="notifications-wrap">
+  <h2 style="text-align:center;margin-bottom:16px;">Notificaciones</h2>
+
+  <div id="noticesList"></div>
+
+  <div id="upgradeBox" class="upgrade-box" style="display:none;">
+    <h3 style="margin-top:0;">Mejora tu plan</h3>
+    <p id="upgradeMsg"></p>
+    <p style="text-align:center;margin-top:10px;">
+      <a class="btn primary" href="/plans">Ver planes</a>
+    </p>
+  </div>
+
+</main>
+
+<script src="/assets/js/notifications.js"></script>
+
+</body>
+</html>
+

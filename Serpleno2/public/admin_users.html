@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios (Admin) - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    .users-wrap {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    table.users {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      overflow: hidden;
+    }
+
+    table.users th, table.users td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+    }
+
+    table.users th {
+      background: #f7faf9;
+      font-weight: bold;
+    }
+
+    table.users tr:hover {
+      background: #f5f5f5;
+    }
+
+    .actions button {
+      padding: 6px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background: #eee;
+    }
+    .actions button:hover {
+      background: #ddd;
+    }
+    .danger-btn {
+      background: #d83a3a !important;
+      color: #fff;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(h => document.getElementById("navbarContainer").innerHTML = h);
+</script>
+
+<main class="users-wrap">
+
+  <h2>Gestión de Usuarios</h2>
+
+  <div id="msg" class="alert" style="display:none;margin-bottom:12px;"></div>
+
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Buscar por nombre o email..."
+    style="padding:8px;width:100%;max-width:350px;margin:10px auto 20px;display:block;border-radius:8px;border:1px solid #ccc"
+  >
+
+  <table class="users">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Rol</th>
+        <th>Plan</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody id="usersBody"></tbody>
+  </table>
+
+</main>
+
+<script src="/assets/js/admin_users.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Serpleno</title>
+
+  <!-- Tus estilos -->
+  <link rel="stylesheet" href="/styles.css" />
+  <script defer src="/session.js"></script>
+  <script defer src="/navbar.js"></script>
+</head>
+
+<body>
+<header>
+  <nav class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="/home" class="logo">Serpleno</a>
+    </div>
+
+    <ul class="nav-menu" id="navMenu">
+      <!-- Se llenará por navbar.js dependiendo del usuario -->
+    </ul>
+
+    <button class="nav-toggle" id="navToggle">☰</button>
+  </nav>
+</header>
+
+<main id="mainContent">
+  <!-- Aquí se inyecta contenido de cada página -->
+</main>
+
+<footer>
+  <p>
+    Todos los derechos reservados. © <span id="year"></span> Serpleno S.A.S —  
+    NIT 900.123.456-7.
+  </p>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

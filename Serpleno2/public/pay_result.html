@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado del Pago - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => (document.getElementById("navbarContainer").innerHTML = html));
+</script>
+
+<main class="pay-wrap">
+  <h2>Resultado del Pago</h2>
+
+  <div id="resultBox" class="card" style="max-width:500px;margin-top:20px;padding:20px;"></div>
+
+  <p style="margin-top:20px;text-align:center;">
+    <a href="/home" class="btn primary">Volver al inicio</a>
+  </p>
+</main>
+
+<script src="/assets/js/pay_result.js"></script>
+
+</body>
+</html>
+

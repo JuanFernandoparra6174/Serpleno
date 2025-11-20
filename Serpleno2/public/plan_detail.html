@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalle del Plan - Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div id="navbarContainer"></div>
+<script>
+  fetch("/components/navbar.html")
+    .then(r => r.text())
+    .then(html => {
+      document.getElementById("navbarContainer").innerHTML = html;
+    });
+</script>
+
+<main class="home-hero">
+  <h2 id="planTitle">Plan</h2>
+
+  <div id="planDetailBox" class="plan-detail" style="margin-top:20px;"></div>
+
+  <div id="planMsg" class="alert danger" style="display:none;margin-top:20px;"></div>
+</main>
+
+<script src="/assets/js/plan_detail.js"></script>
+
+</body>
+</html>
