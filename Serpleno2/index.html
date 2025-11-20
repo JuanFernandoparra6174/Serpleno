@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serpleno</title>
+
+  <link rel="stylesheet" href="/styles.css" />
+
+  <style>
+    body {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      margin:0;
+      background:#f5f5f5;
+      font-family:sans-serif;
+    }
+    .splash {
+      text-align:center;
+    }
+    .logo {
+      font-size:32px;
+      font-weight:bold;
+      margin-bottom:12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="splash">
+    <div class="logo">Serpleno</div>
+    <div>Cargando...</div>
+  </div>
+
+
+  <script>
+  /* ======================================================
+     Redirección exacta del index.php original
+  ====================================================== */
+
+  async function init() {
+    const token = localStorage.getItem("token");
+
+    // Si NO hay token → login
+    if (!token) {
+      return location.href = "/login.html";
+    }
+
+    // Verificar token → /auth/me
+    try {
+      const res = await fetch("/auth/me", {
+        headers: { Authorization: "Bearer " + token }
+      });
+      const j = await res.json();
+
+      if (!j.ok) {
+        return location.href = "/login.html";
+      }
+
+      // Usuario válido → ir al home
+      location.href = "/home.html";
+
+    } catch(err) {
+      location.href = "/login.html";
+    }
+  }
+
+  init();
+  </script>
+
+</body>
+</html>
